@@ -5,16 +5,35 @@
     "moduleResolution": "node",
     "declaration": false,
     "noImplicitAny": false,
-    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "jsx": "react",
     "noLib": false,
+    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "baseUrl": "src",
-    "paths":{"@/*": ["*"]}
-
+    "baseUrl": "./src/",
+    "paths": {
+      "common": [
+        "common"
+      ],
+      "core": [
+        "core"
+      ],
+      "layouts": [
+        "layouts"
+      ],
+      "pods": [
+        "pods"
+      ],
+      "scenes": [
+        "scenes"
+      ],
+      "common-app": [
+        "common-app"
+      ]
+    }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "include": [
+    "./src/**/*"
+  ]
 }
