@@ -3,7 +3,7 @@ import { generatePath } from "react-router-dom";
 interface SwitchRoutes {
   root: string;
   characterCollection: string;
-  detailCollection: string;
+  detailCharacter: string;
 }
 
 export const switchRoutes: SwitchRoutes = {
@@ -12,7 +12,7 @@ export const switchRoutes: SwitchRoutes = {
   detailCharacter: '/character/:id',
 }
 
-type NavigationFunction = (id: number) => string;
+type NavigationFunction = (id: string) => string;
 
 interface LinkRoutes extends Omit<SwitchRoutes, 'detailCharacter'> { 
   detailCharacter: NavigationFunction;
@@ -20,5 +20,5 @@ interface LinkRoutes extends Omit<SwitchRoutes, 'detailCharacter'> {
 
 export const LinkRoutes: LinkRoutes = {
   ...switchRoutes,
-  detailCharacter: (id) => generatePath(switchRoutes.detailCollection, {id})
+  detailCharacter: (id) => generatePath(switchRoutes.detailCharacter, {id})
 }

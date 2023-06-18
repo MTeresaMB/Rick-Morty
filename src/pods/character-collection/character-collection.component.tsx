@@ -1,19 +1,25 @@
 import React from 'react';
-import { CharacterEntityVm } from './character-collection.vm';
-
+import { CharacterEntityVM } from './character-collection.vm';
+import { CharacterCollectionCard } from './components/character-collection-card.component';
 
 interface Props {
-  characterCollection: CharacterEntityVm[];
-  onDetail: (id: number) => void;
+	characterCollection: CharacterEntityVM[];
+	onDetail: (id: string) => void;
 }
 
-export const characterCollectionComponent: React.FC<Props> = (props) => {
-  const { characterCollection, onDetail } = props;
-  return (
-    <div>
-      <ul>{characterCollection.map((character) => 
-        <li key={character.id}>{character.name} onDetail={onDetail}</li>
-      )}</ul>
-    </div>
-  )
+export const CharacterCollectionComponent: React.FC<Props> = (props) => {
+	const { characterCollection, onDetail } = props;
+	return (
+		<div>
+			<ul>
+				{characterCollection.map((character) => (
+					<li key={character.id}>
+						<CharacterCollectionCard character={character} onDetail={onDetail}/>
+
+					</li>
+				))}
+			</ul>
+		</div>
+
+		)
 }

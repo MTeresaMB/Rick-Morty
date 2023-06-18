@@ -1,7 +1,22 @@
 import React from 'react';
-import { characterCollectionComponent } from './character-collection.component';
+import { useCharacterCollection } from './character-collection.hook';
+import { CharacterCollectionComponent } from './character-collection.component';
 import { LinkRoutes } from 'core/router';
+import { useNavigate } from 'react-router-dom';
 
 export const CharacterCollectionContainer = () => {
-  const { characterCollection, loadCharacterCollection } = useCharacterCollection();
-}
+	const { characterCollection, loadCharacterCollection } = useCharacterCollection();
+	const navigate = useNavigate();
+
+
+	React.useEffect(() => {
+		loadCharacterCollection();
+	}, []);
+
+	const handleDetail = (id) => {
+		navigate(LinkRoutes.detailCharacter(id));
+	}
+	return (
+		<CharacterCollectionComponent characterCollection={characterCollection} onDetail={handleDetail}/>	
+	)
+}	

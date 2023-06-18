@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { merge } = require('webpack-merge');
-const helpers = require('./webapck.helpers');
+const helpers = require('./webpack.helpers');
 
 module.exports = merge(
   {},

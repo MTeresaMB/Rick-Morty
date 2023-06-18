@@ -1,8 +1,8 @@
 const { merge } = require('webpack-merge');
 const Dotenv = require('dotenv-webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const base = require('./base');
-const helpers = require('./helpers');
+const base = require('./webpack.base');
+const helpers = require('./webpack.helpers');
 
 module.exports = merge(base, {
   mode: 'development',

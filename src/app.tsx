@@ -1,6 +1,9 @@
+import { RouterComponent } from 'core/router';
 import React from 'react';
-import { ListMembers } from './components/list-member';
 
-export const App = () => {
-  return <><ListMembers/></>
+const App: React.FC = () => {
+  return <RouterComponent/>
+}
+export const AppProviders: React.FC = () => {
+  return <><App/></>
 }
