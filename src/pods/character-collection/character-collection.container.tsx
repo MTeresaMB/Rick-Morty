@@ -13,8 +13,8 @@ export const CharacterCollectionContainer = () => {
 		loadCharacterCollection();
 	}, []);
 
-	const handleDetail = (id) => {
-		navigate(LinkRoutes.detailCharacter(id));
+	const handleDetail = (id: number) => {
+		navigate(LinkRoutes.detailCharacter(Number(id)));
 	}
 	return (
 		<CharacterCollectionComponent characterCollection={characterCollection} onDetail={handleDetail}/>	

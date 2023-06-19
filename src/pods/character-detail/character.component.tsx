@@ -1,9 +1,9 @@
 import React from 'react';
-import { CharacterDetail } from './character.vm';
+import { Character } from './character.vm';
 import { CharacterDetailCard } from './components/character-detail-card.component';
 
 interface Props {
-	character: CharacterDetail;
+	character: Character;
 }
 
 export const CharacterComponent: React.FC<Props> = (props) => {

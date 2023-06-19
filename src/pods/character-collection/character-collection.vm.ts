@@ -1,5 +1,5 @@
 export interface CharacterEntityVM {
-	id: string;
+	id: number;
 	name: string;
 	status: string;
 	species: string;

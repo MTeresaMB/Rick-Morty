@@ -11,7 +11,7 @@ export interface Info{
 }
 
 export interface CharacterCollectionEntity {
-  id: string,
+  id: number,
   name: string,
   status: string,
   species: string,

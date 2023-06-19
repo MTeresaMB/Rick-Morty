@@ -4,7 +4,7 @@ import { CharacterCollectionCard } from './components/character-collection-card.
 
 interface Props {
 	characterCollection: CharacterEntityVM[];
-	onDetail: (id: string) => void;
+	onDetail: (id: number) => void;
 }
 
 export const CharacterCollectionComponent: React.FC<Props> = (props) => {

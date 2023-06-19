@@ -6,7 +6,7 @@ import { Button, Card, CardActions, CardContent, CardHeader, CardMedia } from '@
 
 interface Props {
 	character: CharacterEntityVM;
-	onDetail: (id: string) => void;
+	onDetail: (id: number) => void;
 }
 
 export const CharacterCollectionCard: React.FC<Props> = (props) => {

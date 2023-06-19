@@ -12,7 +12,7 @@ export const switchRoutes: SwitchRoutes = {
   detailCharacter: '/character/:id',
 }
 
-type NavigationFunction = (id: string) => string;
+type NavigationFunction = (id: number) => string;
 
 interface LinkRoutes extends Omit<SwitchRoutes, 'detailCharacter'> { 
   detailCharacter: NavigationFunction;

@@ -1,14 +1,14 @@
+import { Character } from './character.api-model';
 import axios from 'axios';
-import { CharacterEntity} from './character.api-model';
 
-export const getCharacter = async (id: string): Promise<CharacterEntity> => {
-	const url = `https://rickandmorty.com/api/character/${id}`;
-
+export const getCharacter = async (id: number): Promise<Character> => {
+	const url = `https://rickandmortyapi.com/api/character/${id}`;
 	try {
-		const { data } = await axios.get(url)
-		return data;
+		const { data } = await axios.get(url);
+		return data
+	
 	} catch (error) {
 		console.log('Error fetching character: ', error);
-		throw new Error('Error fetching character');
+		throw new Error('Error fetching character: ');
 	}
 };

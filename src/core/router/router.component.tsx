@@ -7,7 +7,7 @@ export const RouterComponent: React.FC = () => {
   return (
     <HashRouter>
       <Routes>
-        <Route path={switchRoutes.root} element={<Navigate to={switchRoutes.characterCollection}></Navigate>}></Route>
+        <Route path={switchRoutes.root} element={<Navigate to={switchRoutes.characterCollection}/>}></Route>
         <Route path={switchRoutes.characterCollection} element={<CharacterCollectionScene />}></Route>
         <Route path={switchRoutes.detailCharacter} element={<CharacterScene />}></Route>
       </Routes>
