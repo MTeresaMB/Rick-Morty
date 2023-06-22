@@ -1,10 +1,11 @@
 import { EndPoint, CharacterCollectionEntity } from "./character-collection.api-model";
 import axios from 'axios';
 
-const url = 'https://rickandmortyapi.com/api/character';
+const API_URL = 'https://rickandmortyapi.com/api/character';
+
 export const getCharacterCollection = async (): Promise<CharacterCollectionEntity[]> => {
   try {
-    const { data } = await axios.get<EndPoint>(url);
+    const { data } = await axios.get<EndPoint>(API_URL);
     return data.results;
   } catch (error: any) {
     if (error.response) {

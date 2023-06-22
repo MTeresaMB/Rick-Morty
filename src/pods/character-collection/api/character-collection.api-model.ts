@@ -20,7 +20,6 @@ export interface CharacterCollectionEntity {
   origin: Origin,
   location: Location,
   image: string,
-  episode: string[],
   url: string,
   created: string,
 }
@@ -34,3 +33,4 @@ export interface Location {
   name: string,
   url: string,
 }
+

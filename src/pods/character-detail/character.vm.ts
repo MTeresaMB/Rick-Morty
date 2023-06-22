@@ -3,9 +3,18 @@ export interface Character {
 	name: string;
 	status: string;
 	species: string;
-	image: string;
 	gender: string;
+	image: string;
+	location: Location;
+	origin: Origin;
 	type: string;
+}
+export interface Location{
+	name: string,
+}
+
+export interface Origin{
+  name: string,
 }
 
 export const CharacterDetailEmpty = (): Character => ({
@@ -16,4 +25,10 @@ export const CharacterDetailEmpty = (): Character => ({
 	image: '',
 	gender: '',
 	type: '',
+	location: {
+		name: '',
+	},
+	origin: {
+		name: '',
+	},
 });

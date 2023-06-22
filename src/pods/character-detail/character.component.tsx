@@ -9,6 +9,8 @@ interface Props {
 export const CharacterComponent: React.FC<Props> = (props) => {
 	const { character } = props;
 	return (
-		<CharacterDetailCard character={character}/>	
+		<div className="cardContainer">
+			<CharacterDetailCard character={character}/>	
+		</div>
 	)
 }

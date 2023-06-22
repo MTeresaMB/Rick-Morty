@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.appBar{
+  height: 300px;
+  background: #89FC00;
+}
+
+.main{
+  background-color: #270341;
+}
+
+.appBarTitle{
+  font-size: 120px;
+  text-align: center;
+  font-family: 'Bangers', cursive;
+}
+
+.iconSvg svg{
+  margin: 10px;
+}

@@ -1,0 +1,22 @@
+.cardContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  margin: auto 10%;
+}
+
+.cardContent {
+  margin-top: 10px;
+  width: 480px;
+  max-height: 350px;
+  display: flex;
+  border-radius: 10px;
+}
+.imageContainer{
+  height: 100%;
+}
+.imageContainer > img {
+  width: 280px;
+  height: 100%;
+  object-fit: cover;
+}

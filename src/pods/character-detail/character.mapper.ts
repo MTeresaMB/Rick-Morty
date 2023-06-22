@@ -6,8 +6,14 @@ export const mapCharacterFromApiToViewModel = (character: apiModel.Character): v
 	name: character.name,
 	status: character.status,
 	species: character.species,
-	image: character.image,
 	gender: character.gender,
+	image: character.image,
+	location: {
+		name: character.location.name,
+	},
+	origin: {
+		name: character.origin.name,
+	},
 	type: character.type,
 	
 });
@@ -17,7 +23,13 @@ export const mapCharacterFromViewModelToApi = (character: viewModel.Character): 
 	name: character.name,
 	status: character.status,
 	species: character.species,
-	image: character.image,
 	gender: character.gender,
+	image: character.image,
+	location: {
+		name: character.location.name,
+	},
+	origin: {
+		name: character.origin.name,
+	},
 	type: character.type,
 });
