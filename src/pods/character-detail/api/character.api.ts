@@ -9,6 +9,6 @@ export const getCharacter = async (id: number): Promise<Character> => {
 	
 	} catch (error) {
 		console.log('Error fetching character: ', error);
-		throw new Error('Error fetching character: ');
+		throw error;
 	}
 };
