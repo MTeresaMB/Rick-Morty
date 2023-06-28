@@ -17,7 +17,7 @@ export const AppBarLayout: React.FC<Props> = ({children}) => {
           Rick & Morty Wiki
         </div>
       </div>
-      <main className="main">{children}</main>
+      <div className="main">{children}</div>
     </>
   );
 };

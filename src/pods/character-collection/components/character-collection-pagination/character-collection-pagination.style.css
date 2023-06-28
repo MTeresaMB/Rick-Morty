@@ -10,18 +10,18 @@
   padding: 10px;
   margin: 10px;
   border-radius: 8px;
-  color: #ffa500;
+  color: #FF4081;
   cursor: pointer;
 }
 
 .paginationBttns a:hover {
-  color: white;
-  background-color: #ffa500;
+  color: black;
+  background-color: #FF4081;
 }
 
 .paginationActive a {
-  color: white;
-  background-color: #ffa500;
+  color: black;
+  background-color: #FF4081;
 }
 
 .paginationDisabled a {
