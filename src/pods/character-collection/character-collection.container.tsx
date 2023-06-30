@@ -1,11 +1,11 @@
 import React from "react";
-import { useCharacterCollection } from "./character-collection.hook";
-import { CharacterCollectionComponent } from "./character-collection.component";
+import './components/character-collection-barSearch/character-collection-searchBar.style.css';
 import { LinkRoutes } from "core/router";
+import { useCharacterCollection } from "./character-collection.hook";
 import { useNavigate } from "react-router-dom";
 import { useCharacterSearch } from "./components/character-collection-barSearch/character-collection-searchBar.hook";
+import { CharacterCollectionComponent } from "./character-collection.component";
 import { PaginationComponent } from "./components/character-collection-pagination/character-collection-pagination.component";
-import './components/character-collection-barSearch/character-collection-searchBar.style.css';
 
 export const CharacterCollectionContainer: React.FC = () => {
   const { characterCollection, loadCharacterCollection } = useCharacterCollection();
@@ -15,10 +15,10 @@ export const CharacterCollectionContainer: React.FC = () => {
 
   // character-collection-pagination component
   const [ currentPage, setCurrentPage ] = React.useState(1);
-  const [ postsPerPage ] = React.useState(6);
-	const lastPostIndex = currentPage * postsPerPage;
-	const firstPostIndex = lastPostIndex - postsPerPage;
-	const currentPosts = character.slice(firstPostIndex, lastPostIndex);
+  const [ cardsPerPage ] = React.useState(6);
+	const lastCardIndex = currentPage * cardsPerPage;
+	const firstCardIndex = lastCardIndex - cardsPerPage;
+	const currentCards = character.slice(firstCardIndex, lastCardIndex);
 
   // links to detail pages
   const navigate = useNavigate();
@@ -52,12 +52,12 @@ export const CharacterCollectionContainer: React.FC = () => {
         placeholder="Search Characters"
         />
       <CharacterCollectionComponent
-        characterCollection={currentPosts}
+        characterCollection={currentCards}
         onDetail={handleDetail}
       />
       <PaginationComponent
         totalCards={characterCollection.length}
-        cardsPerPage={postsPerPage}
+        cardsPerPage={cardsPerPage}
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />

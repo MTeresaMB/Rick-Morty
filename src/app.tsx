@@ -1,9 +1,13 @@
 import { RouterComponent } from 'core/router';
-import React from 'react';
+import { useCharacterCollection } from 'pods/character-collection/character-collection.hook';
+import React, { createContext} from 'react';
 
-const App: React.FC = () => {
-  return <RouterComponent/>
-}
-export const AppProviders: React.FC = () => {
-  return <><App/></>
+
+export const App: React.FC = () => {
+
+  return (
+    <>
+      <RouterComponent/>
+    </>
+  )
 }

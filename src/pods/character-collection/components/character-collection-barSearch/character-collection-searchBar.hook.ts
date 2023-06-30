@@ -6,12 +6,12 @@ import { useDebounce } from 'use-debounce';
 export const useCharacterSearch = () => {
   const [character, setCharacter] = React.useState<CharacterEntityVM[]>([]);
   const [filterSearch, setFilterSearch] = React.useState('');
-  const [debouncedFilter] = useDebounce(filterSearch, 3000);
+  const [debouncedFilter] = useDebounce(filterSearch, 1500);
 
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `https://rickandmortyapi.com/api/character/?name=${filterSearch}`,
+        `https://rickandmortyapi.com/api/character/?name=${debouncedFilter}`,
       );
       if (response.status === 200) {
         const data = response.data
@@ -21,9 +21,10 @@ export const useCharacterSearch = () => {
       }
     } catch (error) {}
   };
+
   React.useEffect(() => {
     handleSearch();
   }, [debouncedFilter]);
 
-  return {filterSearch, setFilterSearch, character, handleSearch}
+  return { filterSearch, setFilterSearch, character, handleSearch }
 };
