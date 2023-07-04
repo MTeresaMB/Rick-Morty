@@ -29,7 +29,6 @@ export const CharacterCollectionContainer: React.FC = () => {
   // call character api
   React.useEffect(() => {
     loadCharacterCollection();
-    setLastSearch('');
   }, []);
 
   // navigate to detail character
@@ -40,6 +39,10 @@ export const CharacterCollectionContainer: React.FC = () => {
   // filter characters 
   React.useEffect(() => {
     handleSearch();
+  }, [filterSearch]);
+
+  React.useEffect(() => {
+    setFilterSearch(lastSearch)
   }, [lastSearch]);
 
   // change pagination 
@@ -51,8 +54,8 @@ export const CharacterCollectionContainer: React.FC = () => {
     <>
       <input className="inputSearch"
         type="text"
-        value={lastSearch}
-        onChange={(e) => setLastSearch(e.target.value)}
+        value={filterSearch}
+        onChange={(e) => setFilterSearch(e.target.value)}
         placeholder="Search Characters"
         />
       <CharacterCollectionComponent

@@ -1,6 +1,6 @@
+import React from "react";
 import { RouterComponent } from "core/router";
 import { PaginationProvider } from "./providers/charactersPaginationContext";
-import React from "react";
 import {
   SearchContext,
   SearchContextProvider,
