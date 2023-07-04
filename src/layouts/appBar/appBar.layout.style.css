@@ -13,7 +13,7 @@
 
 .main{
   background-color: #270341;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .appBarTitle{
@@ -24,4 +24,18 @@
 
 .iconSvg svg{
   margin: 10px;
+}
+
+@media (max-width: 900px) {
+  .appBarTitle{
+    font-size: 4.2rem;
+  }
+  .main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

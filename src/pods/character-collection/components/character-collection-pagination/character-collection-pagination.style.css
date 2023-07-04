@@ -27,3 +27,36 @@
 .paginationDisabled a {
   color: rgb(243, 218, 172);
 }
+
+
+@media(max-width: 768px){
+  .paginationBttns {
+    margin: 20px;
+    height: 15px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .paginationBttns a {
+    padding: 8px;
+    margin: 6px;
+    border-radius: 8px;
+    color: #FF4081;
+    cursor: pointer;
+  }
+  
+  .paginationBttns a:hover {
+    color: black;
+    background-color: #FF4081;
+  }
+  
+  .paginationActive a {
+    color: black;
+    background-color: #FF4081;
+  }
+  
+  .paginationDisabled a {
+    color: rgb(243, 218, 172);
+  }
+}

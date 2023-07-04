@@ -1,5 +1,5 @@
 import React from "react";
-import { CharacterEntityVM } from "../../character-collection.vm";
+import { CharacterEntityVM } from "@/pods/character-collection";
 import { VoltageButton } from "../character-collection-buttonInfo/character-collection-buttonInfo.component";
 import "../character-collection-card/character-collection-card.style.css";
 interface Props {

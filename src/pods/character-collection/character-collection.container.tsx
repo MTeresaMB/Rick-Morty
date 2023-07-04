@@ -6,15 +6,18 @@ import { useNavigate } from "react-router-dom";
 import { useCharacterSearch } from "./components/character-collection-barSearch/character-collection-searchBar.hook";
 import { CharacterCollectionComponent } from "./character-collection.component";
 import { PaginationComponent } from "./components/character-collection-pagination/character-collection-pagination.component";
+import { PaginationContext } from "@/providers/charactersPaginationContext";
+import { SearchContext } from "@/providers/charactersFiltersContext";
 
 export const CharacterCollectionContainer: React.FC = () => {
   const { characterCollection, loadCharacterCollection } = useCharacterCollection();
 
-  // character-collection-searchBar component
+  // character-collection-searchBar component custom hook
   const { filterSearch, setFilterSearch, character, handleSearch } = useCharacterSearch();
+  const { lastSearch, setLastSearch } = React.useContext(SearchContext);
 
   // character-collection-pagination component
-  const [ currentPage, setCurrentPage ] = React.useState(1);
+  const { currentPage, updateCurrentPage} = React.useContext(PaginationContext);
   const [ cardsPerPage ] = React.useState(6);
 	const lastCardIndex = currentPage * cardsPerPage;
 	const firstCardIndex = lastCardIndex - cardsPerPage;
@@ -26,6 +29,7 @@ export const CharacterCollectionContainer: React.FC = () => {
   // call character api
   React.useEffect(() => {
     loadCharacterCollection();
+    setLastSearch('');
   }, []);
 
   // navigate to detail character
@@ -36,19 +40,19 @@ export const CharacterCollectionContainer: React.FC = () => {
   // filter characters 
   React.useEffect(() => {
     handleSearch();
-  }, [filterSearch]);
+  }, [lastSearch]);
 
   // change pagination 
   const handlePageChange = (selected: number) => {
-    setCurrentPage(selected + 1);
+    updateCurrentPage(selected + 1);
   };
 
   return (
     <>
       <input className="inputSearch"
         type="text"
-        value={filterSearch}
-        onChange={(e) => setFilterSearch(e.target.value)}
+        value={lastSearch}
+        onChange={(e) => setLastSearch(e.target.value)}
         placeholder="Search Characters"
         />
       <CharacterCollectionComponent

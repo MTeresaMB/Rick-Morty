@@ -1,13 +1,19 @@
-import { RouterComponent } from 'core/router';
-import { useCharacterCollection } from 'pods/character-collection/character-collection.hook';
-import React, { createContext} from 'react';
-
+import { RouterComponent } from "core/router";
+import { PaginationProvider } from "./providers/charactersPaginationContext";
+import React from "react";
+import {
+  SearchContext,
+  SearchContextProvider,
+} from "./providers/charactersFiltersContext";
 
 export const App: React.FC = () => {
-
   return (
     <>
-      <RouterComponent/>
+      <SearchContextProvider>
+        <PaginationProvider>
+          <RouterComponent />
+        </PaginationProvider>
+      </SearchContextProvider>
     </>
-  )
-}
+  );
+};
