@@ -35,11 +35,11 @@
   - Run the following command to start the application: `npm start`
 
 - This will launch the development server and compile the application.  
-- Once the compilation is complete, the application will be accessible at http://localhost:3000 in your web browser.
+- Once the compilation is complete, the application will be accessible at http://localhost:8080 in your web browser.
 
 **Explore the Application:**
 
-- Open your web browser and navigate to http://localhost:3000.
+- Open your web browser and navigate to http://localhost:8080.
 
 - You should see the Rick and Morty API application's homepage, displaying the list of characters.
 
