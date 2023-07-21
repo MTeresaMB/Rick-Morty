@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Exo&display=swap');
+
+$fontSearchBar: 'Exo', sans-serif;
+$borderColor: #FF4081;
+$backgroundInputHover: #b68ad6;
+$backgroundInput: #e2d1ee;
+
+.inputSearch{
+  outline: none;
+  max-width: 190px;
+  padding: 8px;
+  background-color: $backgroundInput;
+  border-radius: 12px;
+  border: 4px solid $borderColor;
+  width: auto;
+  font-weight: bold;
+  font-style: italic;
+  margin: 10px;
+}
+
+.inputSearch:hover{
+  background-color: $backgroundInputHover;
+  outline: none;
+  border: 4px solid $borderColor;
+
+}

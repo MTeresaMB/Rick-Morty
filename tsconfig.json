@@ -11,6 +11,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "strictNullChecks": true,
     "baseUrl": "./src/",
     "paths": {
       "common": [
@@ -35,7 +36,8 @@
     }
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*",
+    "global.types.d.ts"
   ],
   "exclude": ["node_modules"]
 }

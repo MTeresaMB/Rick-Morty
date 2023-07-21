@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+$backgroundHeader: #89FC00;
+$backgroundMain: #270341;
+$fontHeader: 'Bangers', cursive;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.wrapper{
+  background-color: $backgroundMain;
+  min-height: 100vh;
+
+  .appHeader{
+    height: 300px;
+    background: $backgroundHeader;
+    
+    .iconSvg svg{
+      margin: 10px;
+    }
+  
+    .appHeaderTitle{
+      font-size: 120px;
+      text-align: center;
+      font-family: $fontHeader;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .appHeaderTitle{
+    font-size: 4.2rem;
+  }
+}

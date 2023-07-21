@@ -1,0 +1,31 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "standard-with-typescript",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {"@typescript-eslint/prefer-nullish-coalescing": "error"},
+  "ignorePatterns": [
+    "config/webpack/webpack.base.js",
+    "config/webpack/webpack.dev.js",
+    "config/webpack/webpack.prod.js",
+    "config/webpack/webpack.helpers.js",
+    "global.types.d.ts"
+  ]
+}

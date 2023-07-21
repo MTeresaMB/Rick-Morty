@@ -1,2 +1,2 @@
-export * from './character-collection.scene';
-export * from './character.scene';
+export * from './characterList.scene'
+export * from './characterDetail.scene'
