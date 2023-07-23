@@ -14,7 +14,6 @@ export const useCharacterList = (): DataAPIProps => {
     try {
       const response = await getCharacterList(page)
       setCharacters(response.results)
-      console.log(response)
     } catch (error) {
       setError('Error fetching character list')
     }
