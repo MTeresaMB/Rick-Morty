@@ -1,11 +1,11 @@
 import React from 'react'
-import './characterListButtonInfo.style.css'
+import './buttonInfo.style.scss'
 
-interface VoltageButtonProps {
+interface ButtonInfoProps {
   onClick: () => void
 }
 
-export const VoltageButton: React.FC<VoltageButtonProps> = ({ onClick }) => {
+export const ButtonInfo: React.FC<ButtonInfoProps> = ({ onClick }) => {
   return (
     <div className="voltage-button">
       <button onClick={onClick}>More Info</button>

@@ -1,16 +1,14 @@
 import React from 'react'
-import type { CharacterListEntity } from '@/common/api'
-import { VoltageButton } from '../characterListButtonInfo/characterListButtonInfo.component'
+import type { CharacterListEntity } from '@/pods/characterList/hooks'
+import { ButtonInfo } from '../ButtonInfo/buttonInfo'
 import '../characterListCard/characterListCard.style.scss'
 
-interface CharacterListProps {
+interface CharacterListCardProps {
   character: CharacterListEntity
   onDetail: (id: number) => void
 }
 
-export const CharacterListCard: React.FC<CharacterListProps> = (props) => {
-  const { character, onDetail } = props
-
+export const CharacterListCard: React.FC<CharacterListCardProps> = ({ character, onDetail }) => {
   return (
     <div className='card'>
       <div className='cardImg'>
@@ -20,7 +18,7 @@ export const CharacterListCard: React.FC<CharacterListProps> = (props) => {
         <div className='nameContent'>
           <h4>{character.name}</h4>
         </div>
-        <VoltageButton onClick={() => { onDetail(character.id) }} />
+        <ButtonInfo onClick={() => { onDetail(character.id) }} />
       </div>
     </div>
   )

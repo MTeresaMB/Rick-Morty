@@ -1,6 +1,6 @@
 import React from 'react'
-import type { CharacterListEntity } from '@/common/api'
-import { CharacterListCard } from './components/characterListCard/characterListCard.component'
+import type { CharacterListEntity } from './hooks'
+import { CharacterListCard } from './components/characterListCard/characterListCard'
 import './components/characterListCard/characterListCard.style.scss'
 
 interface CharacterComponentsProps {

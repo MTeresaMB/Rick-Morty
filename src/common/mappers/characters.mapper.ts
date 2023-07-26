@@ -1,4 +1,4 @@
-import type { CharacterListEntity as ApiCharacterListEntity, CharacterListEntity as ViewModelCharacterListEntity } from '@/common/api'
+import type { CharacterListEntity as ApiCharacterListEntity, CharacterListEntity as ViewModelCharacterListEntity } from '@/pods/characterList/hooks'
 
 export const mapCharacterFromApiToViewModel = (character: ApiCharacterListEntity): ViewModelCharacterListEntity => {
   const { id, name, status, species, gender, image, location: { name: Location }, origin: { name: Origin }, type } = character
@@ -36,5 +36,3 @@ export const mapCharacterFromViewModelToApi = (character: ViewModelCharacterList
     type
   }
 }
-
-export const mapToCollection = <A, B>(collection: A[], mapFn: (A) => B): B[] => Array.isArray(collection) ? collection.map(mapFn) : []

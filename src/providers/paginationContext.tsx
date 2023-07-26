@@ -1,6 +1,6 @@
-import React from 'react'
+import { createContext } from 'react'
 
-export const PaginationContext = React.createContext<{
+export const PaginationContext = createContext<{
   currentPage: number
   setCurrentPage: (page: number) => void
 }>({

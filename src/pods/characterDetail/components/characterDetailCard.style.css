@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Exo&display=swap');
 
-.cardContainerDetail{
+.cardDetailContainer{
   display: grid;
   grid-template-columns: 350px;
   grid-gap: 40px;

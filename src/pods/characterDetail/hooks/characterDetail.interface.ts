@@ -1,19 +1,3 @@
-export interface EndPoint {
-  info: Info | null
-  results: CharacterListEntity[]
-}
-
-export interface EndPointDetail {
-  results: CharacterListEntity[]
-}
-
-export interface Info {
-  count: number
-  pages: number
-  next: string
-  prev: null
-}
-
 export interface CharacterListEntity {
   id: number
   name: string
@@ -41,7 +25,6 @@ export const CharacterDetailEmpty: CharacterListEntity = {
     name: ''
   }
 }
-
 export interface Origin {
   name: string
 }

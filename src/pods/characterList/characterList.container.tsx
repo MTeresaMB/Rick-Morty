@@ -1,54 +1,78 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { LinkRoutes } from 'core/router'
-import { useCharacterList } from './characterList.useCharacterList'
+import React, { useContext, useEffect, useState } from 'react'
 import { CharacterListComponent } from './characterList.component'
-import { PaginationComponent } from './components/characterListPagination/characterListPagination.component'
-import { PaginationContext } from '@/providers/charactersPaginationContext'
-import './components/characterListBarSearch/characterSearch.style.scss'
-import { useCharacterSearch } from './components/characterListBarSearch/useCharacterSearch'
+import { PaginationComponent } from './components/pagination/paginationComponent'
+import { useCharacterList, useCharacterSearch } from './hooks'
+import { PaginationContext } from '@/providers/paginationContext'
+import { useNavigate } from 'react-router-dom'
+import { LinkRoutes } from '@/core/router'
 
 export const CharacterListContainer: React.FC = () => {
-  const { characters, fetchCharacterList } = useCharacterList()
-  const { filterSearch, setFilterSearch, character, searchCharacter } = useCharacterSearch()
-  const { currentPage, setCurrentPage } = React.useContext(PaginationContext)
+  const [filterSearch, setFilterSearch] = useState<string>('')
+  const { charactersFullList, charactersFullListPages, fetchCharacterList } =
+    useCharacterList()
+  const {
+    charactersFilteredList,
+    charactersFilteredListPages,
+    searchCharacter,
+    error,
+  } = useCharacterSearch()
+  const { currentPage, setCurrentPage } = useContext(PaginationContext)
+
   const navigate = useNavigate()
-  const handleDetail = (id: number): void => {
+  const handleNavigateDetail = (id: number): void => {
     navigate(LinkRoutes.detailCharacter(Number(id)))
   }
+
   const handlePageChange = (page: number): void => {
     setCurrentPage(page)
   }
 
-  React.useEffect(() => {
-    fetchCharacterList(currentPage).catch((error) => {
-      console.log('Error fetching character list: ', error)
-    })
-  }, [currentPage])
+  useEffect(() => {
+    if (filterSearch === '') {
+      fetchCharacterList(currentPage).catch((error) => {
+        console.log('Error fetching character list', error)
+      })
+      console.log('fetchCharacterList')
+    } else {
+      searchCharacter(filterSearch, currentPage).catch((error) => {
+        console.log('Error fetching character list', error)
+      })
+      console.log('searchCharacter')
+    }
+  }, [currentPage, filterSearch, setFilterSearch])
 
-  React.useEffect(() => {
-    searchCharacter(filterSearch, currentPage).catch((error) => {
-      console.log('Error fetching character list: ', error)
-    })
-  }, [setFilterSearch, currentPage])
-  const filteredCharacters = character.length > 0 ? character : characters
+  const filteredCharacters =
+    charactersFilteredList.length > 0 && filterSearch !== ''
+      ? charactersFilteredList
+      : charactersFullList
+  const totalPages =
+    filterSearch === '' ? charactersFullListPages : charactersFilteredListPages
 
   return (
     <>
-      <PaginationComponent
-        characters={characters}
-        onPageChange={handlePageChange}
-      />
-       <input className="inputSearch"
+      <input
+        className="inputSearch"
         type="text"
         value={filterSearch}
-        onChange={(e) => { setFilterSearch(e.target.value) }}
+        onChange={(e) => {
+          setFilterSearch(e.target.value)
+        }}
         placeholder="Search Characters"
-        />
-      <CharacterListComponent
-        characterList={filteredCharacters}
-        onDetail={handleDetail}
       />
+      {error ? (
+        'No results found'
+      ) : (
+        <>
+          <PaginationComponent
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+          <CharacterListComponent
+            characterList={filteredCharacters}
+            onDetail={handleNavigateDetail}
+          />
+        </>
+      )}
     </>
   )
 }

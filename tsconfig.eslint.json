@@ -1,5 +1,7 @@
 {
   "parserOptions": {
     "project": "./tsconfig.eslint.json"
-  }
+  },
+
+  "include": [".eslintrc.js"]
 }

@@ -1,24 +1,24 @@
-import React, { type ReactElement } from 'react'
+import React, { useState, type ReactElement, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getCharacter, CharacterDetailEmpty } from '@/common/api'
-import type { CharacterListEntity } from '@/common/api'
+import { CharacterDetailEmpty, type CharacterListEntity } from './hooks/characterDetail.interface'
 import { CharacterComponent } from './characterDetail.component'
 import { mapCharacterFromApiToViewModel } from '@/common/mappers'
+import { useGetCharacter } from './hooks/useGetCharacter'
 
 export const CharacterDetailContainer: React.FC = (): ReactElement => {
-  const [character, setCharacter] = React.useState<CharacterListEntity>(CharacterDetailEmpty)
+  const [character, setCharacter] = useState<CharacterListEntity>(CharacterDetailEmpty)
   const { id } = useParams<{ id: string }>()
 
   const handleLoadCharacter = async (): Promise<void> => {
     try {
-      const response = await getCharacter(Number(id))
+      const response = await useGetCharacter(Number(id))
       setCharacter(mapCharacterFromApiToViewModel(response))
     } catch (error) {
       console.log('Error fetching character: ', error)
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     handleLoadCharacter().catch((error) => { console.log('Error loading character: ', error) })
   }, [])
 
