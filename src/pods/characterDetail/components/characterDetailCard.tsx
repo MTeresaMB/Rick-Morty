@@ -2,7 +2,7 @@ import React from 'react'
 import type { CharacterListEntity } from '../hooks/characterDetail.interface'
 import { useNavigate } from 'react-router-dom'
 import { LinkRoutes } from 'core/router'
-import './characterDetailCard.style.css'
+import './characterDetailCard.style.scss'
 
 interface CharacterDetailProps {
   character: CharacterListEntity
