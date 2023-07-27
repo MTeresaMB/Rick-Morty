@@ -23,6 +23,15 @@ module.exports = merge(base, {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, 
+        {
+          loader: 'css-loader',
+        },
+        'sass-loader']
+      },
     ],
   },
   plugins: [

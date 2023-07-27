@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Exo&display=swap');
+
+.cardContainer{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  height: 100%;
+  justify-items: center;
+  margin-top: 50px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 350px;
+  height: 250px;
+  background: #FF4081;
+  margin: 30px 10px;
+  padding: 20px 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+}
+
+.card:hover {
+  height: 360px;
+}
+
+.card .cardImg {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  top: -60px;
+  left: 15px;
+  z-index: 1;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card .cardImg img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+.card .dataContent {
+  position: relative;
+  text-align: center;
+  margin-top: -140px;
+  padding: 10px 15px;
+  color: #111;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+.card:hover .dataContent {
+  visibility: visible;
+  opacity: 1;
+  margin-top: -40px;
+  transition-delay: 0.3s;
+}
+
+.dataContent .nameContent {
+  font-size: 1.1rem;
+  font-family: 'Exo', sans-serif;
+}
+
+@media(max-width: 900px){
+  .cardContainer{
+    grid-template-columns: 1fr 1fr;
+  }
+  .card{
+    max-width: 300px;
+    margin-top: 50px;
+  }
+  .card .cardImg{
+    left: 15px;
+  }
+}
+
+@media(max-width: 768px){ 
+  .cardContainer{
+    grid-template-columns: 1fr ;
+  }
+  .card .cardImg{
+    left: 15px;
+  }
+}

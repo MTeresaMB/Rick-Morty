@@ -1,24 +1,25 @@
-import { generatePath } from "react-router-dom";
+import { generatePath } from 'react-router-dom'
 
 interface SwitchRoutes {
-  root: string;
-  characterCollection: string;
-  detailCharacter: string;
+  root: string
+  characterList: string
+  detailCharacter: string
 }
 
 export const switchRoutes: SwitchRoutes = {
   root: '/',
-  characterCollection: '/character',
-  detailCharacter: '/character/:id',
+  characterList: '/character',
+  detailCharacter: '/character/:id'
 }
 
-type NavigationFunction = (id: number) => string;
+type NavigationFunction = (id: number) => string
 
-interface LinkRoutes extends Omit<SwitchRoutes, 'detailCharacter'> { 
-  detailCharacter: NavigationFunction;
+interface LinkRoutes extends Omit<SwitchRoutes, 'detailCharacter'> {
+  detailCharacter: NavigationFunction
 }
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export const LinkRoutes: LinkRoutes = {
   ...switchRoutes,
-  detailCharacter: (id) => generatePath(switchRoutes.detailCharacter, {id})
+  detailCharacter: (id) => generatePath(switchRoutes.detailCharacter, { id })
 }

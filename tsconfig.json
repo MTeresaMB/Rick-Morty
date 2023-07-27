@@ -11,31 +11,22 @@
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "strictNullChecks": true,
     "baseUrl": "./src/",
     "paths": {
-      "common": [
-        "common"
-      ],
-      "core": [
-        "core"
-      ],
-      "layouts": [
-        "layouts"
-      ],
-      "pods": [
-        "pods"
-      ],
-      "scenes": [
-        "scenes"
-      ],
-      "common-app": [
-        "common-app"
-      ],
+      "common": ["common"],
+      "core": ["core"],
+      "layouts": ["layouts"],
+      "pods": ["pods"],
+      "scenes": ["scenes"],
+      "common-app": ["common-app"],
       "@/*": ["*"]
     }
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*",
+    "global.types.d.ts",
+    "tsconfig.eslint.json"
   ],
   "exclude": ["node_modules"]
 }

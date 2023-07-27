@@ -1,1 +1,1 @@
-export * from './collection.mapper';
+export * from './characters.mapper'
