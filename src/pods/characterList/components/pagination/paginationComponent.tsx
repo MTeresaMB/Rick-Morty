@@ -14,11 +14,10 @@ export const PaginationComponent: React.FC<PaginationProps> = ({
   const { currentPage, setCurrentPage } = useContext(PaginationContext)
 
   const handlePageChangePagination = (page: number): void => {
-    const isPaginationActive = page >= 1 && page <= totalPages
+    const isPaginationActive = page !== currentPage && page >= 1 && page <= totalPages
     if (isPaginationActive) {
       onPageChange(page)
       setCurrentPage(page)
-      console.log(page, 'loaded')
     }
   }
   return (

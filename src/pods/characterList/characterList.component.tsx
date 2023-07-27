@@ -8,8 +8,7 @@ interface CharacterComponentsProps {
   onDetail: (id: number) => void
 }
 
-export const CharacterListComponent: React.FC<CharacterComponentsProps> = (props) => {
-  const { characterList, onDetail } = props
+export const CharacterListComponent: React.FC<CharacterComponentsProps> = ({ characterList, onDetail }) => {
   return (
     <div className='cardContainer'>
       {characterList.map((character) => (

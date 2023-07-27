@@ -5,17 +5,12 @@ import { useCharacterList, useCharacterSearch } from './hooks'
 import { PaginationContext } from '@/providers/paginationContext'
 import { useNavigate } from 'react-router-dom'
 import { LinkRoutes } from '@/core/router'
+import './hooks/characterSearch.style.scss'
 
 export const CharacterListContainer: React.FC = () => {
   const [filterSearch, setFilterSearch] = useState<string>('')
-  const { charactersFullList, charactersFullListPages, fetchCharacterList } =
-    useCharacterList()
-  const {
-    charactersFilteredList,
-    charactersFilteredListPages,
-    searchCharacter,
-    error,
-  } = useCharacterSearch()
+  const { charactersFullList, charactersFullListPages, fetchCharacterList } = useCharacterList()
+  const { charactersFilteredList, charactersFilteredListPages, searchCharacter, error } = useCharacterSearch()
   const { currentPage, setCurrentPage } = useContext(PaginationContext)
 
   const navigate = useNavigate()
@@ -63,13 +58,13 @@ export const CharacterListContainer: React.FC = () => {
         'No results found'
       ) : (
         <>
-          <PaginationComponent
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
           <CharacterListComponent
             characterList={filteredCharacters}
             onDetail={handleNavigateDetail}
+          />
+          <PaginationComponent
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
           />
         </>
       )}

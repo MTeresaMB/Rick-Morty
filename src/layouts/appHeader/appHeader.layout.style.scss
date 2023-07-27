@@ -20,17 +20,21 @@ $fontHeader: 'Bangers', cursive;
     .iconSvg svg{
       margin: 10px;
     }
-  
     .appHeaderTitle{
-      font-size: 120px;
+      font-size: 6.0em;
       text-align: center;
       font-family: $fontHeader;
     }
   }
 }
 
-@media (max-width: 900px) {
-  .appHeaderTitle{
-    font-size: 4.2rem;
+@media(max-width: 720px){
+  .wrapper{
+    .appHeader{
+      .appHeaderTitle{
+        font-size: 1.2em;
+      }
+    }
   }
 }
+
