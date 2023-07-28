@@ -22,7 +22,7 @@ export const PaginationComponent: React.FC<PaginationProps> = ({
   }
   return (
       <>
-        <div className='buttonContainer'>
+        <div className='buttonWrapper'>
           <ButtonPagination textButton='Previous' handlePageChangePagination={() => {handlePageChangePagination(currentPage - 1)}}></ButtonPagination>
           <div className='pages'>{ currentPage } / {totalPages}</div>
           <ButtonPagination textButton='Next' handlePageChangePagination={() => {handlePageChangePagination(currentPage + 1)}}></ButtonPagination>

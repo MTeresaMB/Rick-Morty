@@ -5,8 +5,7 @@ interface buttonPaginationProps {
   textButton: string
   handlePageChangePagination: () => void
 }
-export const ButtonPagination:React.FC<buttonPaginationProps> = ({textButton, handlePageChangePagination}) => {
-  return (
-    <button className='button' onClick={() => { handlePageChangePagination()}}>{textButton}</button>
-  )
-}
+export const ButtonPagination:React.FC<buttonPaginationProps> = ({textButton, handlePageChangePagination}) => <button className='buttonPaginate' onClick={() => { handlePageChangePagination()}}>{textButton}</button>
+
+
+

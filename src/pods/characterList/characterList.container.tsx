@@ -9,6 +9,7 @@ import { LinkRoutes } from '@/core/router'
 import './hooks/characterSearch.style.scss'
 
 export const CharacterListContainer: React.FC = () => {
+  const TEXT_ERROR = 'The character you are trying to search has been moved to another universe.'
   const [filterSearch, setFilterSearch] = useState<string>('')
   const { charactersFullList, charactersFullListPages, fetchCharacterList } = useCharacterList()
   const { charactersFilteredList, charactersFilteredListPages, searchCharacter, error } = useCharacterSearch()
@@ -55,7 +56,7 @@ export const CharacterListContainer: React.FC = () => {
         placeholder="Search Characters"
       />
       {error ? (
-        <Error textError={'The character you are trying to search has been moved to another universe.'}/>
+        <Error textError={TEXT_ERROR}/>
       ) : (
         <>
           <CharacterListComponent

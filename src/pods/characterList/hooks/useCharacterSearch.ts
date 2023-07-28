@@ -2,7 +2,6 @@ import { BASE_URL } from '@/common/common.const'
 import { useState } from 'react'
 import axios from 'axios'
 import type { CharacterListEntity, EndPoint } from './characterList.interface'
-// import { useDebounce } from 'use-debounce'
 
 interface useCharacterSearchProps {
   charactersFilteredList: CharacterListEntity[]
@@ -20,7 +19,6 @@ export const useCharacterSearch = (): useCharacterSearchProps => {
     info: { pages: charactersFilteredListPages },
     results: charactersFilteredList,
   } = apiResponse
-  // const [debouncedFilter] = useDebounce(filterSearch, 1500)
   const [error, setError] = useState<boolean>(false)
 
   const searchCharacter = async (

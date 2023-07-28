@@ -10,7 +10,7 @@ interface CharacterComponentsProps {
 
 export const CharacterListComponent: React.FC<CharacterComponentsProps> = ({ characterList, onDetail }) => {
   return (
-    <div className='cardContainer'>
+    <div className='cardWrapper'>
       {characterList.map((character) => (
         <CharacterListCard
           key={character.id}

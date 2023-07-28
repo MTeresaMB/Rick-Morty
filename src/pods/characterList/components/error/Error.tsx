@@ -8,20 +8,22 @@ interface errorProps {
 }
 
 export const Error: React.FC<errorProps> = ({ textError }) => {
+  const TEXT_BUTTON = 'GET ME HOME'
+  const STATUS_CODE_ERROR = '44'
   const navigate = useNavigate()
   const handleBackNavigate = (): void => {
     navigate(LinkRoutes.root)
   }
   return (
     <>
-      <div className="background-img">
+      <div className="errorWrapper">
         <div className="errorContent">
           <div className="imgContent">
-            <span>44</span>
+            <span>{ STATUS_CODE_ERROR }</span>
           </div>
           <p>{textError}</p>
           <button className="buttonBackHome" onClick={handleBackNavigate}>
-            GET ME HOME
+            { TEXT_BUTTON }
           </button>
         </div>
       </div>

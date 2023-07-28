@@ -2,7 +2,7 @@
 $fontPagination: 'Press Start 2P', cursive;
 
  
-.buttonContainer {
+.buttonWrapper{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -13,7 +13,7 @@ $fontPagination: 'Press Start 2P', cursive;
     font-family: $fontPagination;
   }
   
-  .button{
+  .buttonPaginate{
     padding: 20px;
     background: none;
     border: none;
