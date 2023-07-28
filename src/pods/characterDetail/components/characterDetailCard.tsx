@@ -42,7 +42,7 @@ export const CharacterDetailCard: React.FC<CharacterDetailProps> = (
           </div>
         </div>
         <div className="buttonContainer">
-          <button className="buttonBack" onClick={handleBackNavigate}>
+          <button className="buttonBackDetail" onClick={handleBackNavigate}>
             Back
           </button>
         </div>

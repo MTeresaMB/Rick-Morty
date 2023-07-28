@@ -1,11 +1,11 @@
-import React, { useState, type ReactElement, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { CharacterDetailEmpty, type CharacterListEntity } from './hooks/characterDetail.interface'
 import { CharacterComponent } from './characterDetail.component'
 import { mapCharacterFromApiToViewModel } from '@/common/mappers'
 import { useGetCharacter } from './hooks/useGetCharacter'
 
-export const CharacterDetailContainer: React.FC = (): ReactElement => {
+export const CharacterDetailContainer: React.FC = () => {
   const [character, setCharacter] = useState<CharacterListEntity>(CharacterDetailEmpty)
   const { id } = useParams<{ id: string }>()
 

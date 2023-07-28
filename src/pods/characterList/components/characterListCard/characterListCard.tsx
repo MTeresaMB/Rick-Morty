@@ -1,6 +1,6 @@
 import React from 'react'
 import type { CharacterListEntity } from '@/pods/characterList/hooks'
-import { ButtonInfo } from '../ButtonInfo/buttonInfo'
+import { ButtonInfo } from '../buttonInfo'
 import '../characterListCard/characterListCard.style.scss'
 
 interface CharacterListCardProps {

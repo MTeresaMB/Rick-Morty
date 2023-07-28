@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { CharacterListComponent } from './characterList.component'
-import { PaginationComponent } from './components/pagination/paginationComponent'
+import { PaginationComponent } from './components/pagination'
 import { useCharacterList, useCharacterSearch } from './hooks'
 import { PaginationContext } from '@/providers/paginationContext'
+import { Error } from './components/error'
 import { useNavigate } from 'react-router-dom'
 import { LinkRoutes } from '@/core/router'
 import './hooks/characterSearch.style.scss'
@@ -17,7 +18,6 @@ export const CharacterListContainer: React.FC = () => {
   const handleNavigateDetail = (id: number): void => {
     navigate(LinkRoutes.detailCharacter(Number(id)))
   }
-
   const handlePageChange = (page: number): void => {
     setCurrentPage(page)
   }
@@ -55,7 +55,7 @@ export const CharacterListContainer: React.FC = () => {
         placeholder="Search Characters"
       />
       {error ? (
-        'No results found'
+        <Error textError={'The character you are trying to search has been moved to another universe.'}/>
       ) : (
         <>
           <CharacterListComponent
