@@ -2,27 +2,37 @@
 $fontPagination: 'Press Start 2P', cursive;
 
  
-.buttonWrapper{
+.buttonContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   
   .pages{
     padding: 20px;
-    color: white;
+    color: #FF4081;
     font-family: $fontPagination;
   }
   
-  .buttonPaginate{
+  .buttonPagination{
     padding: 20px;
     background: none;
     border: none;
     color: #FF4081;
     font-family: $fontPagination;
     cursor: pointer;
+
+    &:hover{
+      color: #f886ac;
+    }
+    &.prev[disabled]{
+      opacity: 0.5;
+      cursor: not-allowed;
+      color: #f886ac;
+    }
+    &.next[disabled]{
+      opacity: 0.5;
+      cursor: not-allowed;
+      color: #f886ac
+    }
   }  
-  
-  .button:hover{
-    color: #f886ac;
-  }
 }

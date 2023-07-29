@@ -14,19 +14,36 @@ export const PaginationComponent: React.FC<PaginationProps> = ({
   const { currentPage, setCurrentPage } = useContext(PaginationContext)
 
   const handlePageChangePagination = (page: number): void => {
-    const isPaginationActive = page !== currentPage && page >= 1 && page <= totalPages
+    const isPaginationActive =
+      page !== currentPage && page >= 1 && page <= totalPages
     if (isPaginationActive) {
       onPageChange(page)
       setCurrentPage(page)
     }
   }
   return (
-      <>
-        <div className='buttonWrapper'>
-          <ButtonPagination textButton='Previous' handlePageChangePagination={() => {handlePageChangePagination(currentPage - 1)}}></ButtonPagination>
-          <div className='pages'>{ currentPage } / {totalPages}</div>
-          <ButtonPagination textButton='Next' handlePageChangePagination={() => {handlePageChangePagination(currentPage + 1)}}></ButtonPagination>
+    <>
+      <div className="buttonContainer">
+        <ButtonPagination
+          textButton="Previous"
+          handlePageChangePagination={() => {
+            handlePageChangePagination(currentPage - 1)
+          }}
+          disable={currentPage === 1}
+          type="prev"
+        />
+        <div className="pages">
+          {currentPage} / {totalPages}
         </div>
-      </>
+        <ButtonPagination
+          textButton="Next"
+          handlePageChangePagination={() => {
+            handlePageChangePagination(currentPage + 1)
+          }}
+          disable={currentPage === totalPages}
+          type="next"
+        />
+      </div>
+    </>
   )
 }
