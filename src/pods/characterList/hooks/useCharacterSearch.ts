@@ -2,7 +2,6 @@ import { BASE_URL } from '@/common/common.const'
 import { useState } from 'react'
 import axios from 'axios'
 import type { CharacterListEntity, EndPoint } from './characterList.interface'
-
 interface useCharacterSearchProps {
   charactersFilteredList: CharacterListEntity[]
   charactersFilteredListPages: number
@@ -20,11 +19,7 @@ export const useCharacterSearch = (): useCharacterSearchProps => {
     results: charactersFilteredList,
   } = apiResponse
   const [error, setError] = useState<boolean>(false)
-
-  const searchCharacter = async (
-    filter: string,
-    page: number
-  ): Promise<EndPoint> => {
+  const searchCharacter = async (filter: string,page: number): Promise<EndPoint> => {
     try {
       const { data } = await axios.get<EndPoint>(
         `${BASE_URL}/?page=${page}&name=${filter}`

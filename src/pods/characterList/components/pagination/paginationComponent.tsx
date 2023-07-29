@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import './paginationComponent.style.scss'
-import { PaginationContext } from '@/providers/paginationContext'
+import { PaginationContext } from '@/providers/pagination/paginationContext'
 import { ButtonPagination } from './buttonPagination'
 
 interface PaginationProps {
