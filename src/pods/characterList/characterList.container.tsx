@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { CharacterListComponent } from './characterList.component'
 import { PaginationComponent } from './components/pagination'
 import { useCharacterList, useCharacterSearch } from './hooks'
@@ -11,17 +11,21 @@ import { useDebounce } from 'use-debounce'
 
 export const CharacterListContainer: React.FC = () => {
   const TEXT_ERROR = 'The character you are trying to search has been moved to another universe.'
-  const [filterSearch, setFilterSearch] = useState<string>('')
-  const [debounceFilterSearch] = useDebounce(filterSearch, 1500)
   const { charactersFullList, charactersFullListPages, fetchCharacterList } =
-    useCharacterList()
-  const { currentPage, setCurrentPage, searchedCharacter, setSearchedCharacter } = useContext(PaginationContext)
+  useCharacterList()
+  const {
+    currentPage,
+    setCurrentPage,
+    searchedCharacter,
+    setSearchedCharacter,
+  } = useContext(PaginationContext)
   const {
     charactersFilteredList,
     charactersFilteredListPages,
     searchCharacter,
     error,
   } = useCharacterSearch()
+  const [debounceFilterSearch] = useDebounce(searchedCharacter, 1500)
 
   const navigate = useNavigate()
   const handleNavigateDetail = (id: number): void => {
@@ -32,7 +36,7 @@ export const CharacterListContainer: React.FC = () => {
   }
 
   useEffect(() => {
-    if (filterSearch === '') {
+    if (searchedCharacter === '') {
       fetchCharacterList(currentPage).catch((error) => {
         console.log('Error fetching character list', error)
       })
@@ -41,39 +45,41 @@ export const CharacterListContainer: React.FC = () => {
         console.log('Error fetching character list', error)
       })
       setSearchedCharacter(debounceFilterSearch)
-      console.log(searchedCharacter)
     }
-  }, [currentPage, debounceFilterSearch, setFilterSearch, setSearchedCharacter])
+  }, [currentPage, debounceFilterSearch, setSearchedCharacter])
 
   const filteredCharacters =
-    charactersFilteredList.length > 0 && filterSearch !== ''
+    charactersFilteredList.length > 0 && searchedCharacter !== ''
       ? charactersFilteredList
       : charactersFullList
   const totalPages =
-    filterSearch === '' ? charactersFullListPages : charactersFilteredListPages
+  searchedCharacter === '' ? charactersFullListPages : charactersFilteredListPages
 
   return (
     <>
       <input
         className="inputSearch"
         type="text"
-        value={filterSearch}
+        value={searchedCharacter}
         onChange={(e) => {
-          setFilterSearch(e.target.value)
+          setSearchedCharacter(e.target.value)
         }}
         placeholder="Search Characters"
       />
       {error ? (
-        <Error textError={TEXT_ERROR} />
+        <Error textError={TEXT_ERROR} onNavigateBack={() => {
+          navigate(LinkRoutes.root)
+          setSearchedCharacter('')
+        }}/>
       ) : (
         <>
-          <CharacterListComponent
-            characterList={filteredCharacters}
-            onDetail={handleNavigateDetail}
-          />
           <PaginationComponent
             totalPages={totalPages}
             onPageChange={handlePageChange}
+          />
+          <CharacterListComponent
+            characterList={filteredCharacters}
+            onDetail={handleNavigateDetail}
           />
         </>
       )}

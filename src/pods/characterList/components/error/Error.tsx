@@ -1,19 +1,15 @@
 import React from 'react'
 import './error.style.scss'
-import { useNavigate } from 'react-router-dom'
-import { LinkRoutes } from '@/core/router'
 
 interface errorProps {
   textError: string
+  onNavigateBack: () => void
 }
 
-export const Error: React.FC<errorProps> = ({ textError }) => {
+export const Error: React.FC<errorProps> = ({ textError, onNavigateBack }) => {
   const TEXT_BUTTON = 'GET ME HOME'
   const STATUS_CODE_ERROR = '44'
-  const navigate = useNavigate()
-  const handleBackNavigate = (): void => {
-    navigate(LinkRoutes.root)
-  }
+  
   return (
     <>
       <div className="errorWrapper">
@@ -22,7 +18,7 @@ export const Error: React.FC<errorProps> = ({ textError }) => {
             <span>{ STATUS_CODE_ERROR }</span>
           </div>
           <p>{textError}</p>
-          <button className="buttonBackHome" onClick={handleBackNavigate}>
+          <button className="buttonBackHome" onClick={onNavigateBack}>
             { TEXT_BUTTON }
           </button>
         </div>
