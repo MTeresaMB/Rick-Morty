@@ -9,7 +9,7 @@ $fontHeader: 'Bangers', cursive;
   padding: 0;
   box-sizing: border-box;
 }
-.wrapper{
+.appHeaderWrapper{
   background-color: $backgroundMain;
   min-height: 100vh;
 
@@ -29,7 +29,7 @@ $fontHeader: 'Bangers', cursive;
 }
 
 @media(max-width: 720px){
-  .wrapper{
+  .appHeaderWrapper{
     .appHeader{
       .appHeaderTitle{
         font-size: 4.2em;

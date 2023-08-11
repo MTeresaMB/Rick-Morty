@@ -12,13 +12,16 @@ export const CharacterDetailCard: React.FC<CharacterDetailProps> = (
   characterDetail: CharacterDetailProps
 ) => {
   const { character } = characterDetail
+  const GENDER_TEXT = 'Gender: '
+  const ORIGIN_TEXT = 'Origin: '
+  const LOCATION_TEXT = 'Location: '
   const navigate = useNavigate()
   const handleBackNavigate = (): void => {
     navigate(LinkRoutes.characterList)
   }
 
   return (
-    <div className="cardDetailContainer">
+    <div className="cardDetailWrapper">
       <div className="cardDetail">
         <div className="imageContainerDetail">
           <img src={character.image} alt="character rick and morty" />
@@ -29,20 +32,20 @@ export const CharacterDetailCard: React.FC<CharacterDetailProps> = (
             {character.status + ' - ' + character.species}
           </div>
           <div className="genderCharacter">
-            <span>Gender: </span>
+            <span>{ GENDER_TEXT } </span>
             {character.gender}
           </div>
           <div className="originCharacter">
-            <span>Origin: </span>
+            <span>{ ORIGIN_TEXT }</span>
             {character.origin.name}
           </div>
           <div className="locationCharacter">
-            <span>Location: </span>
+            <span>{ LOCATION_TEXT }</span>
             {character.location.name}
           </div>
         </div>
         <div className="buttonContainer">
-          <button className="buttonBack" onClick={handleBackNavigate}>
+          <button className="buttonBackDetail" onClick={handleBackNavigate}>
             Back
           </button>
         </div>
